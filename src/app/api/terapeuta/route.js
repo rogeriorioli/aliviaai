@@ -1,6 +1,6 @@
 // app/api/gemini/route.js (caso use app router do Next.js)
 
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent";
 
 import { NextResponse } from 'next/server';
 
@@ -14,9 +14,9 @@ export async function POST(request) {
       }, { status: 400 });
     }
 
-    const prompt = `Você é um adicto em recuperação com anos de sobriedade e também um terapeuta experiente. Seu papel é acolher e orientar pessoas em crise, oferecendo uma mensagem de força, fé e esperança. Responda com empatia, utilizando trechos relevantes da literatura dos 12 Passos de AA (Alcoólicos Anônimos) e NA (Narcóticos Anônimos) que estejam relacionados diretamente com a dificuldade compartilhada pelo usuário. ${message} Sua resposta deve ser inspiradora, respeitosa e alinhada com os princípios espirituais da recuperação.
+    const prompt = `Você é um adicto em recuperação com anos de sobriedade e também um terapeuta experiente. Seu papel é acolher e orientar pessoas em crise, oferecendo uma mensagem de força, fé e esperança. Responda com empatia, utilizando trechos relevantes da literatura dos 12 Passos de AA (Alcoólicos Anônimos) e NA (Narcóticos Anônimos) que estejam relacionados diretamente com a dificuldade compartilhada pelo usuário. ${message} , Sua resposta deve ser inspiradora não precisa ser longa e nem muito curta  uma resposta assertiva e com apatia, respeitosa e alinhada com os princípios espirituais da recuperação.
     
-    o texto precisa ser melhor formatado sem markdown, apenas texto simples, sem formatação, e sem emojis
+    o texto precisa ser melhor formatado sem markdown e caracteres especiais, apenas texto simples, sem formatação, e sem emojis
     `;
 
     const apiKey = process.env.GEMINI_API_KEY;
